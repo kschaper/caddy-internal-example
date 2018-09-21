@@ -39,7 +39,7 @@ func signinHandler(w http.ResponseWriter, r *http.Request) {
 func authHandler(w http.ResponseWriter, r *http.Request) {
 	// get cookie
 	if _, err := r.Cookie(cookieName); err != nil {
-		http.Error(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
+		http.Error(w, fmt.Sprintf("%d %s", http.StatusNotFound, http.StatusText(http.StatusNotFound)), http.StatusNotFound)
 		return
 	}
 
